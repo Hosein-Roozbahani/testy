@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation's-Website</title>
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <style>
+        @font-face {
+            font-family: 'BodoniMode-italic';
+            src: url('/fonts/BodoniModa-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'BodoniMode';
+            src: url('/fonts/BodoniModa-VariableFont_opsz,wght.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'GreatVibes-Regular';
+            src: url('/fonts/GreatVibes-Regular.ttf') format('truetype');
+        }
+
+        /* scroll styling */
+        html {
+            scrollbar-width: none;
+        }
+
+        *,
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul,
+        li,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            transition: all .5s !important;
+        }
+
+        section {
+            height: 100vh;
+            scroll-snap-align: center !important;
+            animation: CSSscrollReveal ease-in-out both;
+            animation-timeline: view();
+            animation-range: entry 0% cover 50%;
+        }
+
+        .first-img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            transition: all .5s !important;
+            cursor: pointer;
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 90% 90%, 80% 95%, 70% 90%, 60% 95%, 50% 90%, 40% 95%, 30% 90%, 20% 95%, 10% 90%, 0 95%, 0 100%);
+        }
+
+        .first-img:hover {
+            transform: scale(1.1) !important;
+        }
+
+        .second-img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        /* styling for the first-section*/
+
+        .logo-img {
+            width: 100%;
+            height: 9rem;
+            object-fit: contain;
+            cursor: pointer;
+            position: relative;
+            top: -1.7rem;
+            animation: logoAnimation 0.5s forwards;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        @media (min-width: 500px) {
+            .logo-img {
+                top: -1.4rem;
+            }
+        }
+
+        @media (min-width: 550px) {
+            .logo-img {
+                top: -1.2rem;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .logo-img {
+                top: -1rem;
+            }
+        }
+
+        @media (min-width: 650px) {
+            .logo-img {
+                top: -.6rem;
+            }
+        }
+
+        @media (min-width: 700px) {
+            .logo-img {
+                top: -.4rem;
+            }
+        }
+
+        .titles-wedding {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 12px 48px;
+            color: #fff;
+            background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+            background-position: 0;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s infinite linear;
+            animation-fill-mode: forwards;
+            -webkit-text-size-adjust: none;
+            text-decoration: none;
+            white-space: nowrap;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.5), 0 0 25px rgba(255, 165, 0, 0.5);
+        }
+
+        .first-section-title {
+            border-top: 2px solid lightslategray;
+
+        }
+
+        .second-section-title {
+            font-family: 'GreatVibes-Regular';
+            font-weight: 100;
+        }
+
+        .thrid-section-title {
+            border-bottom: 2px solid lightslategray;
+            padding-bottom: 10px;
+        }
+
+        .first-section-title,
+        .thrid-section-title {
+            font-family: 'BodoniMode';
+            font-weight: 200;
+            font-size: 2.2rem;
+        }
+
+        /* styling for the second-section*/
+        .first-image {
+            overflow: hidden;
+            position: relative;
+            transition: all .5s !important;
+        }
+
+        .titles-first-image {
+            position: absolute;
+            top: 7%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            text-align: center;
+            z-index: 10;
+            font-weight: 100;
+            font-family: serif;
+        }
+
+        .couples-name {
+            text-align: center;
+            line-height: 3.5rem;
+            margin-top: 4rem;
+            cursor: pointer;
+            transition: all .5s;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.5), 0 0 25px rgba(255, 165, 0, 0.5);
+        }
+
+        .couples-name:hover {
+            transform: translateY(-20px);
+        }
+
+        .grooms-name,
+        .brides-name {
+            font-family: 'BodoniMode-italic';
+            font-weight: 500;
+            font-size: 4.5rem;
+        }
+
+        .distance-between-couples-name {
+            font-family: 'GreatVibes-Regular';
+            font-weight: 100;
+            font-size: 6rem;
+        }
+
+        /* styling the for the thrid section */
+        .third-section {
+            transition: all .5s;
+        }
+
+        .third-section:hover {
+            transform: scale(1.1);
+        }
+
+        .second-image {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .titles-and-dates {
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .titles-second-image {
+            color: #eaeaea;
+            text-align: center;
+            font-size: .8rem;
+            margin-top: 1.5rem;
+        }
+
+        .dates {
+            text-align: center;
+            margin-top: 25rem;
+            line-height: 5rem;
+        }
+
+        .dates>h1 {
+            color: #fff;
+            font-size: 5.5rem;
+            font-family: 'BodoniMode';
+            font-weight: 100;
+        }
+
+        .address {
+            color: #eaeaea;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* styling the for the fourth section */
+        .fourth-section,
+        .fifth-section,
+        .sixth-section {
+            text-align: center;
+        }
+
+        .please-word {
+            margin-top: 3rem;
+            font-weight: 100;
+        }
+
+        .R-S-V-P {
+            font-family: 'BodoniMode';
+            font-size: 8rem;
+            line-height: 10rem;
+            margin-top: 2.5rem;
+        }
+
+        .dates-and-emails {
+            margin: 2rem 0;
+            cursor: pointer;
+        }
+
+        .date {
+            font-size: 2rem;
+            margin-bottom: .2rem;
+        }
+
+        .Mindy-and-Chris {
+            transition: all .5s;
+            cursor: pointer;
+        }
+
+        .Mindy-and-Chris:hover {
+            font-size: 1.2rem;
+            color: blue;
+        }
+
+        .explained-from-the-bride-groom {
+            font-family: 'GreatVibes-Regular';
+            font-size: 2rem;
+            color: rgb(167, 167, 167);
+            margin-top: 4rem;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.5), 0 0 25px rgba(255, 165, 0, 0.5);
+        }
+
+        /* styling the fifth section*/
+
+        .program-title>.title-of-fifth-section {
+            margin-top: 1rem;
+            font-size: 3.5rem;
+            font-family: "BodoniMode";
+        }
+
+        .time {
+            font-size: 2.5rem;
+            font-weight: 100;
+        }
+
+        .first-details {
+            margin-top: 4rem;
+        }
+
+        .ceremony-title>p,
+        .Cocktail-title>p {
+            font-family: "GreatVibes-Regular";
+            font-size: 3rem;
+            color: gray;
+            cursor: pointer;
+            transition: all .5s;
+        }
+
+        .Cocktail-title>p:hover {
+            color: lightseagreen;
+        }
+
+        .ceremony-title>p:hover {
+            color: lightseagreen;
+        }
+
+        .underline-distance {
+            margin: 1rem 0;
+            color: red;
+        }
+
+        /* styling the siixth section*/
+        .detail-title>h1 {
+            margin-top: 6rem;
+            font-size: 2.5rem;
+            font-weight: 100;
+            font-family: 'BodoniMode';
+        }
+
+        .details-reception {
+            margin-top: 5rem;
+
+        }
+
+        .titles-last-section {
+            transition: all .5s;
+            cursor: pointer;
+        }
+
+        .titles-last-section:hover {
+            color: lightseagreen;
+        }
+
+        .details-reception>h2 {
+            font-family: 'GreatVibes-Regular';
+            color: rgb(175, 175, 175);
+            font-size: 2rem;
+        }
+
+        .best-wedding-title>h2 {
+            font-family: 'GreatVibes-Regular';
+            color: rgb(175, 175, 175);
+            font-size: 2.5rem;
+        }
+
+        .websites-address {
+            font-size: 1.5rem;
+            margin-top: 6rem;
+            cursor: pointer;
+            transition: all .5s;
+        }
+
+        .websites-address-gradient {
+            background: linear-gradient(to right, red, lightblue);
+            background-clip: text;
+            color: transparent;
+        }
+
+        .websites-address>p:hover {
+            color: blue;
+            transition: all .5s;
+        }
+
+
+        /* Animation's */
+
+        @-moz-keyframes shine {
+            0% {
+                background-position: 0;
+            }
+
+            60% {
+                background-position: 180px;
+            }
+
+            100% {
+                background-position: 180px;
+            }
+        }
+
+        @-webkit-keyframes shine {
+            0% {
+                background-position: 0;
+            }
+
+            60% {
+                background-position: 180px;
+            }
+
+            100% {
+                background-position: 180px;
+            }
+        }
+
+        @-o-keyframes shine {
+            0% {
+                background-position: 0;
+            }
+
+            60% {
+                background-position: 180px;
+            }
+
+            100% {
+                background-position: 180px;
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: 0;
+            }
+
+            60% {
+                background-position: 180px;
+            }
+
+            100% {
+                background-position: 180px;
+            }
+        }
+
+        @keyframes logoAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes CSSscrollReveal {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+    <main class="main">
+        <section class="first-section" id="first-section">
+            <span class="logo">
+                <img src="/images/logo1.jpg" class="logo-img" alt="">
+            </span>
+            <div class="titles-wedding warpper" id="titles-wedding">
+                <h1 class="first-section-title">YOU'RE</h1>
+                <h2 class="second-section-title">WEDDING</h2>
+                <h1 class="thrid-section-title">INVITED</h1>
+            </div>
+        </section>
+
+        <section class="second-section" id="second-section">
+            <div class="first-image animate__animated animate__fadeInUpBig">
+                <img src="/images/C.jpg" class="first-img" alt="">
+                <div class="titles-first-image">
+                    <p class="firsts-line-of-title">To CELEBRATE THE</p>
+                    <p class="seconds-line-of-title">JOYOUS UNION OF</p>
+                </div>
+            </div>
+            <div class="couples-name">
+                <h1 class="grooms-name animate__animated animate__backInUp">MANDY</h1>
+                <h3 class="distance-between-couples-name animate__animated animate__backInUp">and</h3>
+                <h1 class="brides-name animate__animated animate__backInUp">CHRIS</h1>
+            </div>
+        </section>
+
+        <section class="third-section" id="third-section">
+            <div class="second-image">
+                <img src="/images/B.jpg" class="second-img animate__animated animate__fadeInUpBig" alt="">
+                <div class="titles-and-dates">
+                    <div class="titles-second-image">
+                        <h3>JOIN US ON</h3>
+                    </div>
+                    <div class="dates">
+                        <h1 class="the-date-1 animate__animated animate__fadeInDownBig">08.19</h1>
+                        <h1 class="the-date-2 animate__animated animate__fadeInDownBig">20XX</h1>
+                    </div>
+                    <div class="address">
+                        <p>At Six o'Clock In The Evening <br> At The Beautiful Evergreen Gardens Villa, <br> Wedding,CA
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fourth-section" id="fourth-section">
+            <div class="please-word">
+                <p class="animate__animated animate__backInRight">PLEASE</p>
+            </div>
+            <div class="R-S-V-P">
+                <h1 class="R-S animate__animated animate__backInDown">R S</h1>
+                <h1 class="V-P animate__animated animate__backInDown">V P</h1>
+            </div>
+            <div class="dates-and-emails">
+                <div class="date">
+                    <p class="animate__animated animate__backInRight">by JULY 15 to</p>
+                </div>
+                <div class="Mindy-and-Chris animate__animated animate__backInLeft">Mindy&Chris@gmail.com</div>
+            </div>
+            <div class="explained-from-the-bride-groom">
+                <p class="animate__animated animate__backInRight">and kindly let us know if you wanna join us in this
+                    celebration of love</p>
+            </div>
+        </section>
+
+        <section class="fifth-section animate__animated animate__backInRight" id="fifth-section">
+            <div class="program-title">
+                <h1 class="title-of-fifth-section animate__animated animate__backInRight">PROGRAM</h1>
+            </div>
+            <div class="first-details">
+                <div class="first-timing">
+                    <h1 class="time ">11:00</h1>
+                </div>
+                <div class="ceremony-title">
+                    <p>Ceremony</p>
+                </div>
+                <ul class="Processional">
+                    <li>Processional</li>
+                    <li>Bride's Entrance</li>
+                    <li>ceremony</li>
+                    <li>Recessional</li>
+                </ul>
+            </div>
+            <div class="second-details">
+                <div class="underline-distance">__</div>
+                <div class="second-timing">
+                    <h1 class="time">14:00</h1>
+                </div>
+                <div class="Cocktail-title">
+                    <p>Cocktail</p>
+                </div>
+            </div>
+            <div class="last-detail">
+                <div class="underline-distance">__</div>
+                <div class="last-timing">
+                    <h1 class="time">15:00</h1>
+                </div>
+                <ul class="receptions">
+                    <li>Receptions</li>
+                    <li>Dinner Service</li>
+                    <li>Toasts</li>
+                    <li>First Dance</li>
+                    <li>Parent Dances</li>
+                    <li>Cake Cutting</li>
+                    <li>Dancing</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="sixth-section animate__animated animate__backInRight" id="sixth-section">
+            <div class="detail-title">
+                <h1>DETAILS</h1>
+            </div>
+            <div class="details-reception">
+                <h2 class="titles-last-section">Reception</h2>
+                <p>join us for the reception immediately following the ceremony, we will be serving dinner, drinks and
+                    dancing to celebrate our special day.</p>
+            </div>
+            <div>
+                <div class="underline-distance">__</div>
+                <div class="best-wedding-title">
+                    <h2 class="titles-last-section">best-wedding</h2>
+                    <p>we have secured a room block at blake hotel for our out-of-town guests,please use the code
+                        'BestWedd'
+                        when making your reservation</p>
+                </div>
+            </div>
+            <div>
+                <div class="underline-distance">__</div>
+                <div>
+                    <p class="information">for all additional information shuttle services and wedding details, please
+                        visit our wedding
+                        website: </p>
+                </div>
+            </div>
+            <div class="websites-address animate__animated animate__backInUp">
+                <p class="websites-address-gradient">www.Mindy&Chris.com</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '60px',
+            duration: 2000,
+            delay: 500,
+            reset: true
+        })
+        sr.reveal('.first-section , .second-section , .third-section, fourth-section, .fifth-section, .sixth-section');
+        sr.reveal('.titles-wedding ', {
+            delay: 600
+        });
+        sr.reveal('.first-image ', {
+            delay: 999
+        });
+        sr.reveal('.second-img ', {
+            delay: 999
+        });
+        sr.reveal('.titles-first-image ', {
+            delay: 600
+        });
+        sr.reveal('.couples-name ', {
+            delay: 600
+        });
+        sr.reveal('.dates', {
+            delay: 600
+        });
+        sr.reveal('.address', {
+            delay: 999
+        });
+        sr.reveal('.R-S-V-P', {
+            delay: 600
+        });
+        sr.reveal('.program-title', {
+            delay: 500
+        });
+        sr.reveal('.first-timing', {
+            delay: 600
+        });
+        sr.reveal('.ceremony-title', {
+            delay: 700
+        });
+        sr.reveal('.second-timing', {
+            delay: 800
+        });
+        sr.reveal('.second-timing', {
+            delay: 900
+        });
+        sr.reveal('.last-timing', {
+            delay: 999
+        });
+        sr.reveal('.dates-and-emails', {
+            delay: 800
+        });
+        sr.reveal('.explained-from-the-bride-groom', {
+            delay: 600
+        });
+        sr.reveal('.detail-title', {
+            delay: 600
+        });
+        sr.reveal('.details-reception', {
+            delay: 750
+        });
+        sr.reveal('.best-wedding-title', {
+            delay: 870
+        });
+        sr.reveal('.information', {
+            delay: 950
+        });
+        sr.reveal('.websites-address-gradient', {
+            delay: 999
+        });
+    </script>
+    <script>
+        /*! @license ScrollReveal v4.0.9
+
+	Copyright 2021 Fisssion LLC.
+
+	Licensed under the GNU General Public License 3.0 for
+	compatible open source projects and non-commercial use.
+
+	For commercial sites, themes, projects, and applications,
+	keep your source code private/proprietary by purchasing
+	a commercial license from https://scrollrevealjs.org/
+*/
+var ScrollReveal=function(){"use strict";var r={delay:0,distance:"0",duration:600,easing:"cubic-bezier(0.5, 0, 0, 1)",interval:0,opacity:0,origin:"bottom",rotate:{x:0,y:0,z:0},scale:1,cleanup:!1,container:document.documentElement,desktop:!0,mobile:!0,reset:!1,useDelay:"always",viewFactor:0,viewOffset:{top:0,right:0,bottom:0,left:0},afterReset:function(){},afterReveal:function(){},beforeReset:function(){},beforeReveal:function(){}};var n={success:function(){document.documentElement.classList.add("sr"),document.body?document.body.style.height="100%":document.addEventListener("DOMContentLoaded",function(){document.body.style.height="100%"})},failure:function(){return document.documentElement.classList.remove("sr"),{clean:function(){},destroy:function(){},reveal:function(){},sync:function(){},get noop(){return!0}}}};function o(e){return"object"==typeof window.Node?e instanceof window.Node:null!==e&&"object"==typeof e&&"number"==typeof e.nodeType&&"string"==typeof e.nodeName}function u(e,t){if(void 0===t&&(t=document),e instanceof Array)return e.filter(o);if(o(e))return[e];if(n=e,i=Object.prototype.toString.call(n),"object"==typeof window.NodeList?n instanceof window.NodeList:null!==n&&"object"==typeof n&&"number"==typeof n.length&&/^\[object (HTMLCollection|NodeList|Object)\]$/.test(i)&&(0===n.length||o(n[0])))return Array.prototype.slice.call(e);var n,i;if("string"==typeof e)try{var r=t.querySelectorAll(e);return Array.prototype.slice.call(r)}catch(e){return[]}return[]}function s(e){return null!==e&&e instanceof Object&&(e.constructor===Object||"[object Object]"===Object.prototype.toString.call(e))}function f(n,i){if(s(n))return Object.keys(n).forEach(function(e){return i(n[e],e,n)});if(n instanceof Array)return n.forEach(function(e,t){return i(e,t,n)});throw new TypeError("Expected either an array or object literal.")}function h(e){for(var t=[],n=arguments.length-1;0<n--;)t[n]=arguments[n+1];if(this.constructor.debug&&console){var i="%cScrollReveal: "+e;t.forEach(function(e){return i+="\n — "+e}),console.log(i,"color: #ea654b;")}}function t(){var n=this,i={active:[],stale:[]},t={active:[],stale:[]},r={active:[],stale:[]};try{f(u("[data-sr-id]"),function(e){var t=parseInt(e.getAttribute("data-sr-id"));i.active.push(t)})}catch(e){throw e}f(this.store.elements,function(e){-1===i.active.indexOf(e.id)&&i.stale.push(e.id)}),f(i.stale,function(e){return delete n.store.elements[e]}),f(this.store.elements,function(e){-1===r.active.indexOf(e.containerId)&&r.active.push(e.containerId),e.hasOwnProperty("sequence")&&-1===t.active.indexOf(e.sequence.id)&&t.active.push(e.sequence.id)}),f(this.store.containers,function(e){-1===r.active.indexOf(e.id)&&r.stale.push(e.id)}),f(r.stale,function(e){var t=n.store.containers[e].node;t.removeEventListener("scroll",n.delegate),t.removeEventListener("resize",n.delegate),delete n.store.containers[e]}),f(this.store.sequences,function(e){-1===t.active.indexOf(e.id)&&t.stale.push(e.id)}),f(t.stale,function(e){return delete n.store.sequences[e]})}function N(e){if(e.constructor!==Array)throw new TypeError("Expected array.");if(16===e.length)return e;if(6!==e.length)throw new RangeError("Expected array with either 6 or 16 values.");var t=z();return t[0]=e[0],t[1]=e[1],t[4]=e[2],t[5]=e[3],t[12]=e[4],t[13]=e[5],t}function z(){for(var e=[],t=0;t<16;t++)t%5==0?e.push(1):e.push(0);return e}function F(e,t){for(var n=N(e),i=N(t),r=[],o=0;o<4;o++)for(var s=[n[o],n[o+4],n[o+8],n[o+12]],a=0;a<4;a++){var c=4*a,l=[i[c],i[c+1],i[c+2],i[c+3]],d=s[0]*l[0]+s[1]*l[1]+s[2]*l[2]+s[3]*l[3];r[o+c]=d}return r}function D(e,t){var n=z();return n[0]=e,n[5]="number"==typeof t?t:e,n}var S=function(){var n={},i=document.documentElement.style;function e(e,t){if(void 0===t&&(t=i),e&&"string"==typeof e){if(n[e])return n[e];if("string"==typeof t[e])return n[e]=e;if("string"==typeof t["-webkit-"+e])return n[e]="-webkit-"+e;throw new RangeError('Unable to find "'+e+'" style property.')}throw new TypeError("Expected a string.")}return e.clearCache=function(){return n={}},e}();function p(e){var t=window.getComputedStyle(e.node),n=t.position,i=e.config,r={},o=(e.node.getAttribute("style")||"").match(/[\w-]+\s*:\s*[^;]+\s*/gi)||[];r.computed=o?o.map(function(e){return e.trim()}).join("; ")+";":"",r.generated=o.some(function(e){return e.match(/visibility\s?:\s?visible/i)})?r.computed:o.concat(["visibility: visible"]).map(function(e){return e.trim()}).join("; ")+";";var s,a,c,l,d,u,f,h,p,m,y,v,g,b=parseFloat(t.opacity),w=isNaN(parseFloat(i.opacity))?parseFloat(t.opacity):parseFloat(i.opacity),E={computed:b!==w?"opacity: "+b+";":"",generated:b!==w?"opacity: "+w+";":""},j=[];if(parseFloat(i.distance)){var T="top"===i.origin||"bottom"===i.origin?"Y":"X",k=i.distance;"top"!==i.origin&&"left"!==i.origin||(k=/^-/.test(k)?k.substr(1):"-"+k);var O=k.match(/(^-?\d+\.?\d?)|(em$|px$|%$)/g),x=O[0];switch(O[1]){case"em":k=parseInt(t.fontSize)*x;break;case"px":k=x;break;case"%":k="Y"===T?e.node.getBoundingClientRect().height*x/100:e.node.getBoundingClientRect().width*x/100;break;default:throw new RangeError("Unrecognized or missing distance unit.")}"Y"===T?j.push((c=k,(l=z())[13]=c,l)):j.push((s=k,(a=z())[12]=s,a))}i.rotate.x&&j.push((d=i.rotate.x,u=Math.PI/180*d,(f=z())[5]=f[10]=Math.cos(u),f[6]=f[9]=Math.sin(u),f[9]*=-1,f)),i.rotate.y&&j.push((h=i.rotate.y,p=Math.PI/180*h,(m=z())[0]=m[10]=Math.cos(p),m[2]=m[8]=Math.sin(p),m[2]*=-1,m)),i.rotate.z&&j.push((y=i.rotate.z,v=Math.PI/180*y,(g=z())[0]=g[5]=Math.cos(v),g[1]=g[4]=Math.sin(v),g[4]*=-1,g)),1!==i.scale&&(0===i.scale?j.push(D(2e-4)):j.push(D(i.scale)));var R={};if(j.length){R.property=S("transform"),R.computed={raw:t[R.property],matrix:function(e){if("string"==typeof e){var t=e.match(/matrix(3d)?\(([^)]+)\)/);if(t)return N(t[2].split(", ").map(parseFloat))}return z()}(t[R.property])},j.unshift(R.computed.matrix);var q=j.reduce(F);R.generated={initial:R.property+": matrix3d("+q.join(", ")+");",final:R.property+": matrix3d("+R.computed.matrix.join(", ")+");"}}else R.generated={initial:"",final:""};var A={};if(E.generated||R.generated.initial){A.property=S("transition"),A.computed=t[A.property],A.fragments=[];var P=i.delay,L=i.duration,M=i.easing;E.generated&&A.fragments.push({delayed:"opacity "+L/1e3+"s "+M+" "+P/1e3+"s",instant:"opacity "+L/1e3+"s "+M+" 0s"}),R.generated.initial&&A.fragments.push({delayed:R.property+" "+L/1e3+"s "+M+" "+P/1e3+"s",instant:R.property+" "+L/1e3+"s "+M+" 0s"}),A.computed&&!A.computed.match(/all 0s|none 0s/)&&A.fragments.unshift({delayed:A.computed,instant:A.computed});var I=A.fragments.reduce(function(e,t,n){return e.delayed+=0===n?t.delayed:", "+t.delayed,e.instant+=0===n?t.instant:", "+t.instant,e},{delayed:"",instant:""});A.generated={delayed:A.property+": "+I.delayed+";",instant:A.property+": "+I.instant+";"}}else A.generated={delayed:"",instant:""};return{inline:r,opacity:E,position:n,transform:R,transition:A}}function m(r,e){e.split(";").forEach(function(e){var t=e.split(":"),n=t[0],i=t.slice(1);n&&i&&(r.style[n.trim()]=i.join(":"))})}function y(e){var i,r=this;try{f(u(e),function(e){var t=e.getAttribute("data-sr-id");if(null!==t){i=!0;var n=r.store.elements[t];n.callbackTimer&&window.clearTimeout(n.callbackTimer.clock),m(n.node,n.styles.inline.generated),e.removeAttribute("data-sr-id"),delete r.store.elements[t]}})}catch(e){return h.call(this,"Clean failed.",e.message)}if(i)try{t.call(this)}catch(e){return h.call(this,"Clean failed.",e.message)}}function v(n){for(var e=[],t=arguments.length-1;0<t--;)e[t]=arguments[t+1];if(s(n))return f(e,function(e){f(e,function(e,t){s(e)?(n[t]&&s(n[t])||(n[t]={}),v(n[t],e)):n[t]=e})}),n;throw new TypeError("Target must be an object literal.")}function g(e){return void 0===e&&(e=navigator.userAgent),/Android|iPhone|iPad|iPod/i.test(e)}var e,b=(e=0,function(){return e++});function w(){var n=this;t.call(this),f(this.store.elements,function(e){var t=[e.styles.inline.generated];e.visible?(t.push(e.styles.opacity.computed),t.push(e.styles.transform.generated.final),e.revealed=!0):(t.push(e.styles.opacity.generated),t.push(e.styles.transform.generated.initial),e.revealed=!1),m(e.node,t.filter(function(e){return""!==e}).join(" "))}),f(this.store.containers,function(e){var t=e.node===document.documentElement?window:e.node;t.addEventListener("scroll",n.delegate),t.addEventListener("resize",n.delegate)}),this.delegate(),this.initTimeout=null}function c(e,t){void 0===t&&(t={});var n=t.pristine||this.pristine,i="always"===e.config.useDelay||"onload"===e.config.useDelay&&n||"once"===e.config.useDelay&&!e.seen,r=e.visible&&!e.revealed,o=!e.visible&&e.revealed&&e.config.reset;return t.reveal||r?function(e,t){var n=[e.styles.inline.generated,e.styles.opacity.computed,e.styles.transform.generated.final];t?n.push(e.styles.transition.generated.delayed):n.push(e.styles.transition.generated.instant);e.revealed=e.seen=!0,m(e.node,n.filter(function(e){return""!==e}).join(" ")),a.call(this,e,t)}.call(this,e,i):t.reset||o?function(e){var t=[e.styles.inline.generated,e.styles.opacity.generated,e.styles.transform.generated.initial,e.styles.transition.generated.instant];e.revealed=!1,m(e.node,t.filter(function(e){return""!==e}).join(" ")),a.call(this,e)}.call(this,e):void 0}function a(e,t){var n=this,i=t?e.config.duration+e.config.delay:e.config.duration,r=e.revealed?e.config.beforeReveal:e.config.beforeReset,o=e.revealed?e.config.afterReveal:e.config.afterReset,s=0;e.callbackTimer&&(s=Date.now()-e.callbackTimer.start,window.clearTimeout(e.callbackTimer.clock)),r(e.node),e.callbackTimer={start:Date.now(),clock:window.setTimeout(function(){o(e.node),e.callbackTimer=null,e.revealed&&!e.config.reset&&e.config.cleanup&&y.call(n,e.node)},i-s)}}function l(e,t){if(void 0===t&&(t=this.pristine),!e.visible&&e.revealed&&e.config.reset)return c.call(this,e,{reset:!0});var n=this.store.sequences[e.sequence.id],i=e.sequence.index;if(n){var r=new d(n,"visible",this.store),o=new d(n,"revealed",this.store);if(n.models={visible:r,revealed:o},!o.body.length){var s=n.members[r.body[0]],a=this.store.elements[s];if(a)return j.call(this,n,r.body[0],-1,t),j.call(this,n,r.body[0],1,t),c.call(this,a,{reveal:!0,pristine:t})}if(!n.blocked.head&&i===[].concat(o.head).pop()&&i>=[].concat(r.body).shift())return j.call(this,n,i,-1,t),c.call(this,e,{reveal:!0,pristine:t});if(!n.blocked.foot&&i===[].concat(o.foot).shift()&&i<=[].concat(r.body).pop())return j.call(this,n,i,1,t),c.call(this,e,{reveal:!0,pristine:t})}}function E(e){var t=Math.abs(e);if(isNaN(t))throw new RangeError("Invalid sequence interval.");this.id=b(),this.interval=Math.max(t,16),this.members=[],this.models={},this.blocked={head:!1,foot:!1}}function d(e,i,r){var o=this;this.head=[],this.body=[],this.foot=[],f(e.members,function(e,t){var n=r.elements[e];n&&n[i]&&o.body.push(t)}),this.body.length&&f(e.members,function(e,t){var n=r.elements[e];n&&!n[i]&&(t<o.body[0]?o.head.push(t):o.foot.push(t))})}function j(e,t,n,i){var r=this,o=["head",null,"foot"][1+n],s=e.members[t+n],a=this.store.elements[s];e.blocked[o]=!0,setTimeout(function(){e.blocked[o]=!1,a&&l.call(r,a,i)},e.interval)}function i(e,a,t){var c=this;void 0===a&&(a={}),void 0===t&&(t=!1);var l,d=[],n=a.interval||r.interval;try{n&&(l=new E(n));var i=u(e);if(!i.length)throw new Error("Invalid reveal target.");f(i.reduce(function(e,t){var n={},i=t.getAttribute("data-sr-id");i?(v(n,c.store.elements[i]),m(n.node,n.styles.inline.computed)):(n.id=b(),n.node=t,n.seen=!1,n.revealed=!1,n.visible=!1);var r=v({},n.config||c.defaults,a);if(!r.mobile&&g()||!r.desktop&&!g())return i&&y.call(c,n),e;var o,s=u(r.container)[0];if(!s)throw new Error("Invalid container.");return s.contains(t)&&(null===(o=function(t){var e=[],n=arguments.length-1;for(;0<n--;)e[n]=arguments[n+1];var i=null;return f(e,function(e){f(e,function(e){null===i&&e.node===t&&(i=e.id)})}),i}(s,d,c.store.containers))&&(o=b(),d.push({id:o,node:s})),n.config=r,n.containerId=o,n.styles=p(n),l&&(n.sequence={id:l.id,index:l.members.length},l.members.push(n.id)),e.push(n)),e},[]),function(e){(c.store.elements[e.id]=e).node.setAttribute("data-sr-id",e.id)})}catch(e){return h.call(this,"Reveal failed.",e.message)}f(d,function(e){c.store.containers[e.id]={id:e.id,node:e.node}}),l&&(this.store.sequences[l.id]=l),!0!==t&&(this.store.history.push({target:e,options:a}),this.initTimeout&&window.clearTimeout(this.initTimeout),this.initTimeout=window.setTimeout(w.bind(this),0))}var T,k=Math.sign||function(e){return(0<e)-(e<0)||+e},O=(T=Date.now(),function(e){var t=Date.now();16<t-T?e(T=t):setTimeout(function(){return O(e)},0)}),x=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||O;function R(e,t){for(var n=t?e.node.clientHeight:e.node.offsetHeight,i=t?e.node.clientWidth:e.node.offsetWidth,r=0,o=0,s=e.node;isNaN(s.offsetTop)||(r+=s.offsetTop),isNaN(s.offsetLeft)||(o+=s.offsetLeft),s=s.offsetParent;);return{bounds:{top:r,right:o+i,bottom:r+n,left:o},height:n,width:i}}function q(e,t){var i=this;void 0===e&&(e={type:"init"}),void 0===t&&(t=this.store.elements),x(function(){var n="init"===e.type||"resize"===e.type;f(i.store.containers,function(e){n&&(e.geometry=R.call(i,e,!0));var t=function(e){var t,n;return n=e.node===document.documentElement?(t=window.pageYOffset,window.pageXOffset):(t=e.node.scrollTop,e.node.scrollLeft),{top:t,left:n}}.call(i,e);e.scroll&&(e.direction={x:k(t.left-e.scroll.left),y:k(t.top-e.scroll.top)}),e.scroll=t}),f(t,function(e){(n||void 0===e.geometry)&&(e.geometry=R.call(i,e)),e.visible=function(e){void 0===e&&(e={});var t=this.store.containers[e.containerId];if(t){var n=Math.max(0,Math.min(1,e.config.viewFactor)),i=e.config.viewOffset,r=e.geometry.bounds.top+e.geometry.height*n,o=e.geometry.bounds.right-e.geometry.width*n,s=e.geometry.bounds.bottom-e.geometry.height*n,a=e.geometry.bounds.left+e.geometry.width*n,c=t.geometry.bounds.top+t.scroll.top+i.top,l=t.geometry.bounds.right+t.scroll.left-i.right,d=t.geometry.bounds.bottom+t.scroll.top-i.bottom,u=t.geometry.bounds.left+t.scroll.left+i.left;return r<d&&u<o&&c<s&&a<l||"fixed"===e.styles.position}}.call(i,e)}),f(t,function(e){e.sequence?l.call(i,e):c.call(i,e)}),i.pristine=!1})}var A,P,L,M,I,C,W,Y,$="4.0.9";function H(e){var t;if(void 0===e&&(e={}),void 0===this||Object.getPrototypeOf(this)!==H.prototype)return new H(e);if(!H.isSupported())return h.call(this,"Instantiation failed.","This browser is not supported."),n.failure();try{t=v({},C||r,e)}catch(e){return h.call(this,"Invalid configuration.",e.message),n.failure()}try{if(!u(t.container)[0])throw new Error("Invalid container.")}catch(e){return h.call(this,e.message),n.failure()}return!(C=t).mobile&&g()||!C.desktop&&!g()?(h.call(this,"This device is disabled.","desktop: "+C.desktop,"mobile: "+C.mobile),n.failure()):(n.success(),this.store={containers:{},elements:{},history:[],sequences:{}},this.pristine=!0,A=A||q.bind(this),P=P||function(){var n=this;f(this.store.elements,function(e){m(e.node,e.styles.inline.generated),e.node.removeAttribute("data-sr-id")}),f(this.store.containers,function(e){var t=e.node===document.documentElement?window:e.node;t.removeEventListener("scroll",n.delegate),t.removeEventListener("resize",n.delegate)}),this.store={containers:{},elements:{},history:[],sequences:{}}}.bind(this),L=L||i.bind(this),M=M||y.bind(this),I=I||function(){var t=this;f(this.store.history,function(e){i.call(t,e.target,e.options,!0)}),w.call(this)}.bind(this),Object.defineProperty(this,"delegate",{get:function(){return A}}),Object.defineProperty(this,"destroy",{get:function(){return P}}),Object.defineProperty(this,"reveal",{get:function(){return L}}),Object.defineProperty(this,"clean",{get:function(){return M}}),Object.defineProperty(this,"sync",{get:function(){return I}}),Object.defineProperty(this,"defaults",{get:function(){return C}}),Object.defineProperty(this,"version",{get:function(){return $}}),Object.defineProperty(this,"noop",{get:function(){return!1}}),Y||(Y=this))}return H.isSupported=function(){return("transform"in(t=document.documentElement.style)||"WebkitTransform"in t)&&("transition"in(e=document.documentElement.style)||"WebkitTransition"in e);var e,t},Object.defineProperty(H,"debug",{get:function(){return W||!1},set:function(e){return W="boolean"==typeof e?e:W}}),H(),H}();
+    </script>
+    <!-- <script src="/js/script.js"></script> -->
+    <!-- <script src="/js/scrollreveal.min.js"></script> -->
+    <!-- <script src="/js/swiper.bundle.min.js"></script> -->
+</body>
+
+
+</html>
